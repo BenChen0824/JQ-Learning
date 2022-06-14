@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous"
+        />
+        <style>
+            .img-wrap {
+                width: fit-content;
+            }
+            .circle {
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row pt-5">
+                <div class="img-wrap">
+                    <img class="circle" src="./imgs/person1.jpg" alt="" />
+                </div>
+                <div class="img-wrap">
+                    <img class="circle" src="./imgs/person2.jpg" alt="" />
+                </div>
+                <div class="img-wrap">
+                    <img class="circle" src="./imgs/person3.jpg" alt="" />
+                </div>
+                <div class="img-wrap">
+                    <img class="circle" src="./imgs/person4.jpg" alt="" />
+                </div>
+                <div class="img-wrap">
+                    <img class="circle" src="./imgs/person5.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            $(".circle").click(function () {
+                // console.log($(this).nextAll());
+                $(this).css("outline", "10px solid red");
+                $(this)
+                    .parent()
+                    .nextAll()
+                    .find(".circle")
+                    .css("outline", "0px solid red");
+                $(this)
+                    .parent()
+                    .prevAll()
+                    .find(".circle")
+                    .css("outline", "0px solid red");
+            });
+        </script>
+    </body>
+</html>
