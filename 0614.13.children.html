@@ -47,6 +47,28 @@
             //     .parentsUntil(".row")
             //     .css("outline", "1px solid blue");
             //往上找每一個父層直到指定的為止 不含指定
+
+            $(".item-001").next().css("outline", "1px solid yellow");
+            //找同層下一個
+            $(".item-003").prev().prev().css("outline", "1px solid purple");
+            //往同層上一個
+
+            $(".item-003")
+                .closest(".item-2")
+                .prev()
+                .css("outline", "1px solid green");
+
+            // $(".item-003").nextAll().css("outline", "1px solid purple");
+            //同層找後面每一個
+
+            // $(".item-003").nextUntil().css("outline", "1px solid purple");
+            //同層找後面每一層直到所指定的位置
+
+            // $(".item-003").prevAll().css("outline", "1px solid purple");
+            //同層找前面每一個
+
+            // $(".item-003").prevUntil().css("outline", "1px solid purple");
+            //同層找前面每一個直到所指定的位置
         </script>
     </body>
 </html>
