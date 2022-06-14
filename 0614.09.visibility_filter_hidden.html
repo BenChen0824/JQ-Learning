@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div hidden>abc</div>
+        <div><p>def</p></div>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            $("div:hidden").show();
+            //是div 且為hidden的show
+            //show就是display block
+            //這邊如果用bs 因為bs的hidden有下important 所以會吃不到 權重不夠
+        </script>
+    </body>
+</html>
