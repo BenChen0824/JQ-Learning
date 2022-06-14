@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .col {
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <span>123</span>
+                <div class="col">col1</div>
+                <div class="col">col2</div>
+                <div class="col">col3</div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">col1</div>
+                <div class="col">col2</div>
+                <div class="col">col3</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">col1</div>
+            </div>
+        </div>
+
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            // $('.col:first-child').css('background','red');
+            //如果不是第一個的col就吃不到 span在最前面就吃不到
+            // $('.col:last-child').css('background','blue');
+            // $('.col:first-of-type').css('background','blue');
+            //第一個的col都能吃到
+            // $('.col:last-of-type').css('background','blue');
+            //最後一個的col都能吃到
+            // $('.col:nth-child(1)').css('background','blue');
+            // 第一個的小孩且為col能吃到
+            // $('.col:nth-of-type(1)').css('background','blue');
+            // 第一個類型的小孩且為col能吃到
+            // $('.col:nth-child(1)').css('background','blue');
+            // 第一個的小孩且為col能吃到
+            // $(".col:nth-last-child(1)").css("background", "blue");
+            // 最後一個的小孩且為col能吃到;
+            // $('.col:nth-last-of-type(1)').css('background','blue');
+            // 最後一個類型的小孩且為col能吃到
+
+            $('.col:only-child').css('background','blue');
+            // 當只有一個小孩且為col時吃的到
+
+            $('span:only-of-type').css('background','blue');
+            // 當只有一個小孩且為span時吃的到
+        </script>
+    </body>
+</html>
