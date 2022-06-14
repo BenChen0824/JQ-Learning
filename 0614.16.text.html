@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            span {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="btn">abc123</button>
+        <h1 id="h1">hello <span>world</span></h1>
+        <h2 id="h2"></h2>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            console.log($("#h1").text());
+            // const result = ($('#h1').text());
+            // $('#h2').text(result);
+            //純文字 不含裡面span
+
+            // const result = ($('#h1').html());
+            // $('#h2').html(result);
+            //會吃到裡面所有架構含span
+
+            const result = $("#h1").html();
+            $("#h2").text(result);
+            //會用文字方式呈現所有的架構 所以在呈現上會把span的標籤以文字呈現
+        </script>
+    </body>
+</html>
