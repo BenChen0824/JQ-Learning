@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="product_demo">
+                    <div class="product_demo w-50 mx-auto">
                         <img class="w-100" src="./imgs/product1.jpg" alt="" />
                     </div>
                 </div>
@@ -64,12 +64,11 @@
         <script src="./js/jquery-3.6.0.js"></script>
         <script>
             var src;
-            $(".img-row")
-                .find("img")
+            $(".img-row img")
                 .click(function () {
                     // console.log($(this).attr("src"));
                     src = $(this).attr("src");
-                    $(".product_demo").find("img").attr("src", src);
+                    $(".product_demo img").attr("src", src);
                 });
         </script>
     </body>
