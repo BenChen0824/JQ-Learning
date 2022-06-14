@@ -20,6 +20,15 @@
             for (let i = 3; i <= 10; i++) {
                 $("ul").append(`<li>item ${i}</li>`);
             }
+            for (let i = 0; i >= -10; i--) {
+                $("ul").prepend(`<li>item ${i}</li>`);
+            }
+            for (let i = 0; i >= -5; i--) {
+                $("ul").before(`<li>li:item ${i}</li>`);
+            }
+            for (let i = 0; i <= 5; i++) {
+                $("ul").after(`<li>li:item ${i}</li>`);
+            }
         </script>
     </body>
 </html>
