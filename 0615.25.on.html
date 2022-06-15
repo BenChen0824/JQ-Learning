@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="add">add</button>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            let count = 3;
+            $("#add").click(function () {
+                
+                $("ul").append(`<li>item ${count}</li>`);
+                count ++;
+            });
+
+            $("ul").on("click", "li", function () {
+                console.log($(this).text());
+            });
+            //這邊如果一開始是抓li的話她在一開始真聽抓到的會只有兩個li所以必須要先用原本就有的ul在抓裡面的li他才會在後面增加時也可以繼續偵聽
+        </script>
+    </body>
+</html>

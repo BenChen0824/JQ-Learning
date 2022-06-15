@@ -21,23 +21,63 @@
 
                 background-color: rgb(219, 16, 16);
             }
+            .fixed {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 50px;
+            }
+            .ad {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            .ad1 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /* background-color: rgb(109, 109, 109); */
+                opacity: 0.3;
+            }
+            .ad_content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%);
+                transform: translateY(-50%);
+            }
+            img {
+                width: 50%;
+                height: 50%;
+            }
         </style>
     </head>
     <body>
         <div class="wrap">
             <div class="progress"></div>
         </div>
+        <div class="fixed">
+            <div class="ad">
+                <div class="ad_content">
+                    <img src="./imgs/avatar04.jpg" alt="" />
+                </div>
+                <div class="ad1"></div>
+            </div>
+        </div>
         <script src="./js/jquery-3.6.0.js"></script>
         <script>
             $(window).scroll(function () {
                 // console.log($(this).scrollTop());
                 // console.log($("body").height());
-                // console.log($(this).scrollTop() / $("body").height());
 
                 Precenttage =
                     $(window).scrollTop() /
                     ($("body").height() - $(window).height());
-                    //這邊扣掉window height的原因是他scrolltop是畫面最上端距離body最上端 所以需要扣掉scrollbar的大小 
+                //這邊扣掉window height的原因是他scrolltop是畫面最上端距離body最上端 所以需要扣掉scrollbar的大小
+                console.log(Precenttage);
+                // !!!!!!這邊要注意跟畫面大小會有關係 所以如果有畫面縮放 最下面不一定會=1
 
                 $(".progress").css("width", `${Precenttage * 100}%`);
             });
