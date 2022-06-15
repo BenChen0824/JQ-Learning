@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous"
+        />
+        <style>
+            .wrap{
+                margin: auto;
+                width: 80vw;
+                height: 50vh;
+                overflow: hidden;
+                position: relative;
+            }
+            ul{
+                list-style: none;
+                padding: 0;
+            }
+            .train{
+                display: flex;
+                width: 500%;
+                
+            }
+            .train li{
+                flex-basis: 0;
+                flex-grow: 1;
+            }
+            .train li img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            .box{
+                width: 50px;
+                height: 10px;
+                background-color: #cccccc;
+                opacity: 0.4;
+            }
+            .box-row{
+                position: absolute;
+                bottom: 20px;
+                
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <ul class="train">
+                <li><img src="./imgs/slide1.jpg" alt="" /></li>
+                <li><img src="./imgs/slide2.jpg" alt="" /></li>
+                <li><img src="./imgs/slide3.jpg" alt="" /></li>
+                <li><img src="./imgs/slide4.jpg" alt="" /></li>
+                <li><img src="./imgs/slide5.jpg" alt="" /></li>
+            </ul>
+            <div class="d-flex box-row">
+                <div class="box1 box mx-3"></div>
+                <div class="box2 box mx-3"></div>
+                <div class="box3 box mx-3"></div>
+                <div class="box4 box mx-3"></div>
+                <div class="box5 box mx-3"></div>
+            </div>
+        </div>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            $('.box1').hover(function(){
+                $('.train').css('transform','translateX(-0)');
+                $('.box').css('opacity',"0.4");
+                $('.box').css('background',"#ccc");
+                $('.box1').css('opacity',"1");
+                $('.box1').css('background',"#fff");
+            })
+            $('.box2').hover(function(){
+                $('.train').css('transform','translateX(-80vw)');
+                $('.box').css('opacity',"0.4");
+                $('.box').css('background',"#ccc");
+                $('.box2').css('opacity',"1");
+                $('.box2').css('background',"#fff");
+            })
+            $('.box3').hover(function(){
+                $('.train').css('transform','translateX(-160vw)');
+                $('.box').css('opacity',"0.4");
+                $('.box').css('background',"#ccc");
+                $('.box3').css('opacity',"1");
+                $('.box3').css('background',"#fff");
+            })
+            $('.box4').hover(function(){
+                $('.train').css('transform','translateX(-240vw)');
+                $('.box').css('opacity',"0.4");
+                $('.box').css('background',"#ccc");
+                $('.box4').css('opacity',"1");
+                $('.box4').css('background',"#fff");
+            })
+            $('.box5').hover(function(){
+                $('.train').css('transform','translateX(-320vw)');
+                $('.box').css('opacity',"0.4");
+                $('.box').css('background',"#ccc");
+                $('.box5').css('opacity',"1");
+                $('.box5').css('background',"#fff");
+            })
+            
+        </script>
+    </body>
+</html>
