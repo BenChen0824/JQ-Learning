@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="form-row d-flex">
+                        <div class="form-group mx-3">
+                            <select name="city" id="city">
+                                <option value="0">基隆</option>
+                                <option value="1">台北</option>
+                                <option value="2">新北</option>
+                            </select>
+                        </div>
+                        <div class="form-group mx-3">
+                            <select name="district" id="district">
+                                <option value="0">七堵</option>
+                                <option value="1">中正</option>
+                                <option value="2">暖暖</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            let districtArray = [
+                ["七堵", "中正", "暖暖"],
+                ["中正", "大安", "信義"],
+                ["蘆洲", "三重", "新店", "板橋", "新莊", "淡水"],
+            ];
+            $("#city").change(function () {
+                // const cityindex = $(this).val();
+                // // console.log(districtArray[cityindex]);
+                // $("#district option").each((index, elem) => {
+                //     $(elem).text(districtArray[cityindex][index]);
+                //     // console.log(elem);
+                // });
+
+                const districtData = districtArray[$(this).val()];
+                $("#district").empty();
+                $(districtData).each((index, elem) => {
+                    // console.log("elem", elem);
+                    $("#district").append(
+                        `<option value="${index}">${elem}</option>`
+                    );
+                });
+                //這樣的寫法會比較自由 看資料有多少筆再將加進去
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+                height: 300vh;
+            }
+            .wrap {
+                width: 100%;
+                height: 50px;
+                position: fixed;
+                background-color: #ccc;
+            }
+            .progress {
+                height: 100%;
+
+                background-color: rgb(219, 16, 16);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="progress"></div>
+        </div>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            $(window).scroll(function () {
+                // console.log($(this).scrollTop());
+                // console.log($("body").height());
+                // console.log($(this).scrollTop() / $("body").height());
+
+                Precenttage =
+                    $(window).scrollTop() /
+                    ($("body").height() - $(window).height());
+                    //這邊扣掉window height的原因是他scrolltop是畫面最上端距離body最上端 所以需要扣掉scrollbar的大小 
+
+                $(".progress").css("width", `${Precenttage * 100}%`);
+            });
+        </script>
+    </body>
+</html>
