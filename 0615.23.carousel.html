@@ -27,6 +27,7 @@
                 width: 500%;
                 /* border: 2px solid rgb(74, 242, 74); */
                 transform: translateX(-0px);
+                transition: 0.5s ease;
             }
 
             .train li {
@@ -101,10 +102,11 @@
                 x = $(this).index();
                 // console.log("hi", x);
 
-                $('ul.train').css('transform',`translateX(${-800*x}px)`)
-                $(this).css("background","#fff");
-                $(this).nextAll().css("background","transparent");
-                $(this).prevAll().css("background","transparent");
+                $("ul.train").css("transform", `translateX(${-800 * x}px)`);
+                //這邊建議使用translate 不要用position position會需要重新渲染
+                $(this).css("background", "#fff");
+                $(this).siblings().css("background", "transparent");
+                
             });
         </script>
     </body>
