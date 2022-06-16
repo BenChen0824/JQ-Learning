@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous"
+        />
+        <style>
+            .wrap {
+                width: 800px;
+                height: 600px;
+                background-color: rgb(226, 226, 226);
+                position: relative;
+            }
+
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: #aaf;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap mx-auto">
+            <div class="box"></div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-info mt-3" id="up">
+                <i class="fa-solid fa-angle-up"></i>
+            </button>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-info mx-3" id="left">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button class="btn btn-info mx-3" id="right">
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-info" id="down">
+                <i class="fa-solid fa-angle-down"></i>
+            </button>
+        </div>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            let speed = 20;
+            const move = function (direction, move, speed) {
+                $(".box").css(direction, `${move}${speed}px`);
+            };
+            let totalwidth = parseInt($(".wrap").css("width"));
+            let boxwidth = parseInt($(".box").css("width"));
+            let totalheight = parseInt($(".wrap").css("height"));
+            let boxheight = parseInt($(".box").css("height"));
+            $("#up").click(function () {
+                speed = 20;
+                if (parseInt($(".box").css("top")) >= speed) {
+                    move("top", "-=", speed);
+                }
+            });
+            $("#left").click(function () {
+                speed = 20;
+                if (parseInt($(".box").css("left")) >= speed) {
+                    move("left", "-=", speed);
+                }
+            });
+            $("#right").click(function () {
+                speed = 20;
+                if (
+                    parseInt($(".box").css("left")) <=
+                    totalwidth - boxwidth - speed
+                ) {
+                    move("left", "+=", speed);
+                }
+            });
+
+            $("#down").click(function () {
+                speed = 20;
+                if (
+                    parseInt($(".box").css("top")) <=
+                    totalheight - boxheight - speed
+                ) {
+                    move("top", "+=", speed);
+                }
+            });
+
+            const downmove = () => {
+
+                $("#down").mousedown(function () {
+                    index=0;
+                    
+                    // console.log(totalheight - boxheight - speed);
+                    if (
+                        parseInt($(".box").css("top")) <=
+                        totalheight - boxheight - speed
+                    ) {
+                        speed += 0.1;
+                        move("top", "+=", speed);
+                        console.log(totalheight - boxheight - speed);
+                        console.log(index);
+
+                    }
+                });
+                setTimeout(downmove, 200);
+            };
+            downmove();
+        </script>
+    </body>
+</html>

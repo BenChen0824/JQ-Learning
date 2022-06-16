@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous"
+        />
+        <style>
+            .fontS {
+                font-size: 0.8rem;
+            }
+            .fontM {
+                font-size: 1rem;
+            }
+            .fontL {
+                font-size: 1.2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="d-flex justify-content-end">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" id="btns" class="btn btn-primary">
+                        S
+                    </button>
+                    <button
+                        type="button"
+                        id="btnm"
+                        class="btn btn-primary active"
+                    >
+                        M
+                    </button>
+                    <button id="btnl" type="button" class="btn btn-primary">
+                        L
+                    </button>
+                </div>
+            </div>
+            <h2>JQuery</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Cupiditate repellendus quidem voluptatibus delectus sapiente
+                pariatur amet nobis aliquid qui nostrum, nulla corporis atque
+                saepe reiciendis hic sed voluptate aliquam consequuntur!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Cupiditate repellendus quidem voluptatibus delectus sapiente
+                pariatur amet nobis aliquid qui nostrum, nulla corporis atque
+                saepe reiciendis hic sed voluptate aliquam consequuntur!
+            </p>
+        </div>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            // $(".btn").click(function () {
+            //     $(this).addClass("active");
+            //     $(this).siblings().removeClass("active");
+            //     // console.log($(this).is(":contains('S')"));
+            //     if ($(this).is(":contains('S')")) {
+            //         $("p").addClass("fontS");
+            //         $("p:not('fontS')").removeClass("fontM");
+            //         $("p:not('fontS')").removeClass("fontL");
+            //     }
+            //     if ($(this).is(":contains('M')")) {
+            //         $("p").addClass("fontM");
+            //         $("p:not('fontS')").removeClass("fontL");
+            //         $("p:not('fontS')").removeClass("fontS");
+            //     }
+            //     if ($(this).is(":contains('L')")) {
+            //         $("p").addClass("fontL");
+            //         $("p:not('fontS')").removeClass("fontM");
+            //         $("p:not('fontS')").removeClass("fontS");
+            //     }
+            // });
+
+            // $(".btn").click(function () {
+            //     $(this).addClass("active");
+            //     $(this).siblings().removeClass("active");
+            //     $("p").attr("class", "");
+            //     if ($(this).is(":contains('S')")) {
+            //         $("p").addClass("fontS");
+            //     }
+            //     if ($(this).is(":contains('M')")) {
+            //         $("p").addClass("fontM");
+            //     }
+            //     if ($(this).is(":contains('L')")) {
+            //         $("p").addClass("fontL");
+            //     }
+            // });
+
+            $(".btn").click(function () {
+                $(this).addClass("active").siblings().removeClass("active");
+                if ($(this).is(":contains('S')")) {
+                    $("p").removeClass().addClass("fontS");
+                }
+                if ($(this).is(":contains('M')")) {
+                    $("p").removeClass().addClass("fontM");
+                }
+                if ($(this).is(":contains('L')")) {
+                    $("p").removeClass().addClass("fontL");
+                }
+            });
+        </script>
+    </body>
+</html>
