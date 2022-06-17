@@ -90,29 +90,45 @@
         <script src="./js/jquery-3.6.0.js"></script>
         <script>
             let check = false;
-
-            $("#totalcheck").click(function () {
-                console.log($(".input").prop('checked'));
-                if ($(this).prop("checked")) {
-                    for (let i = 0; i < $(".input").length; i++) {
-                        console.log($(".input")[i]);
-                        (($(".input"))[i]).prop("checked", "false");
-                    }
+            const checkinput = function (e) {
+                if ($(e).prop("checked")) {
+                    $(e).closest("tr").css("background", "#cccccc");
                 } else {
-                    $(".input").attr("checked", "true");
+                    $(e).closest("tr").css("background", "#fff");
                 }
+            };
+            $("#totalcheck").click(function () {
+                // console.log(
+                //     $(this).closest("table").find("tbody").find("input")
+                // );
+                if ($(this).prop("checked")) {
+                    $(this)
+                        .closest("table")
+                        .find("tbody")
+                        .find("input")
+                        .prop("checked", true);
+                } else {
+                    $(this)
+                        .closest("table")
+                        .find("tbody")
+                        .find("input")
+                        .prop("checked", false);
+                }
+                checkinput(
+                    $(this).closest("table").find("tbody").find("input")
+                );
             });
 
-                
+            $(".input").click(function () {
+                checkinput($(this));
+                // console.log($(".input"));
 
-
-
-
-            $(".input").change(function () {
-                if ($(this).prop("checked")) {
-                    $(this).closest("tr").css("background", "#cccccc");
-                } else {
-                    $(this).closest("tr").css("background", "#fff");
+                if (!$(this).prop("checked")) {
+                    $(this)
+                        .closest("table")
+                        .find("thead")
+                        .find("input")
+                        .prop("checked", false);
                 }
             });
         </script>

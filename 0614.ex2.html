@@ -22,18 +22,18 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
-                <div class="col-3 box"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
+                <div class="col-3 box autobg"></div>
             </div>
         </div>
         <script src="./js/jquery-3.6.0.js"></script>
@@ -44,6 +44,32 @@
                 $(this).nextAll().css("background", "lightblue");
                 // $(this).nextAll.css('background','lightblue');
             });
+            
         </script>
+        <script>
+                    function getRandomInt(max) {
+                        return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+                    }
+        
+                    function getRBGA() {
+                        return `linear-gradient(135deg, rgba(${getRandomInt(
+                            256
+                        )},${getRandomInt(256)},${getRandomInt(
+                            256
+                        )},.5), rgba(${getRandomInt(256)},${getRandomInt(
+                            256
+                        )},${getRandomInt(256)},.8)`;
+                    }
+        
+                    const elements = document.querySelectorAll(".autobg");
+        
+                    Array.from(elements).forEach((element, index) => {
+                        element.style.backgroundImage = getRBGA();
+                    });
+        
+                    // $('.autobg').each(function (index, currentElement) {
+                    //     currentElement.style.backgroundImage = getRBGA();
+                    // });
+                </script>
     </body>
 </html>

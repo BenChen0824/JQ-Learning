@@ -98,11 +98,41 @@
                 }
             });
 
-            const downmove = () => {
+            $(document).on("keydown", function (e) {
+                console.log(e.keyCode);
+                if (e.keyCode === 38) {
+                    if (parseInt($(".box").css("top")) >= speed) {
+                        move("top", "-=", speed);
+                    }
+                }
+                if (e.keyCode === 40) {
+                    if (
+                        parseInt($(".box").css("top")) <=
+                        totalheight - boxheight - speed
+                    ) {
+                        move("top", "+=", speed);
+                    }
+                }
+                if (e.keyCode === 37) {
+                    if (parseInt($(".box").css("left")) >= speed) {
+                        move("left", "-=", speed);
+                    }
+                }
 
+                if (e.keyCode === 39) {
+                    if (
+                        parseInt($(".box").css("left")) <=
+                        totalwidth - boxwidth - speed
+                    ) {
+                        move("left", "+=", speed);
+                    }
+                }
+            });
+
+            const downmove = () => {
                 $("#down").mousedown(function () {
-                    index=0;
-                    
+                    index = 0;
+
                     // console.log(totalheight - boxheight - speed);
                     if (
                         parseInt($(".box").css("top")) <=
@@ -112,7 +142,6 @@
                         move("top", "+=", speed);
                         console.log(totalheight - boxheight - speed);
                         console.log(index);
-
                     }
                 });
                 setTimeout(downmove, 200);
