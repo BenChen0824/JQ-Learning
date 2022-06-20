@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: #ccf;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="start">start</button>
+        <button class="stop">stop</button>
+        <div></div>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+        <!-- 如果會改變到顏色的部分 需要引入bg-color這個jq -->
+        <script>
+            $(".start").click(function () {
+                $("div")
+                    .animate(
+                        {
+                            width: "500px",
+                            backgroundColor: "#ffc",
+                        },
+                        3000
+                    )
+                    .animate(
+                        {
+                            width: "200px",
+                            backgroundColor: "#cca",
+                        },
+                        2000
+                    );
+            });
+
+            $(".stop").click(function () {
+                // $("div").stop(false,false)
+                //預設 會把動畫跳到最後完成樣子
+                // $("div").stop(true,false)
+                //在哪個當下停止就停在那邊 不會有後續動作
+                // $("div").stop(true,true)
+                //在哪個當下停止會把當前動畫完成但不會在進行下一個動畫
+                $("div").stop(false, true);
+                //在哪個當下直接將當下動畫完成並進行後續的動畫
+            });
+        </script>
+    </body>
+</html>

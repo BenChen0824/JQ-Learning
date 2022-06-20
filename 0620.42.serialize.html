@@ -15,25 +15,15 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-4 mx-auto pt-3">
+                <div class="col-4">
                     <form>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label"
-                                >username</label
-                            >
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="username"
-                                aria-describedby="emailHelp"
-                            />
-                        </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label"
                                 >Email address</label
                             >
                             <input
                                 type="email"
+                                name="email"
                                 class="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
@@ -50,20 +40,21 @@
                             >
                             <input
                                 type="password"
+                                name="password"
                                 class="form-control"
                                 id="exampleInputPassword1"
                             />
                         </div>
-                        <button
-                            type="button"
-                            id="fillin"
-                            class="btn btn-primary"
-                        >
-                            Fill Text
-                        </button>
-                        <button type="button" id="show" class="btn btn-primary">
-                            show
-                        </button>
+                        <div class="mb-3 form-check">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="exampleCheck1"
+                            />
+                            <label class="form-check-label" for="exampleCheck1"
+                                >Check me out</label
+                            >
+                        </div>
                         <button type="submit" class="btn btn-primary">
                             Submit
                         </button>
@@ -73,18 +64,18 @@
         </div>
         <script src="./js/jquery-3.6.0.js"></script>
         <script>
-            $("#fillin").click(function () {
-                let parent = $(this).parent();
-                parent.find("#username").val("John");
-                parent.find("#exampleInputEmail1").val("john@gmail.com");
-                parent.find("#exampleInputPassword1").val("123456");
-            });
-            $("#show").click(function () {
-                if ($("#exampleInputPassword1").attr("type") === "text") {
-                    $("#exampleInputPassword1").attr("type", "password");
-                } else {
-                    $("#exampleInputPassword1").attr("type", "text");
-                }
+            $("form").on("submit", function (event) {
+                event.preventDefault();
+                $.ajax({
+                    method: "POST",
+                    url: "http://localhost:3000/login",
+                    data: $("form").serialize() ,
+                    dataType: "json",
+                    
+                }).done(function (data) {
+                    console.log(JSON.parse(JSON.stringify(data)));
+                });
+                console.log($("form").serialize());
             });
         </script>
     </body>
