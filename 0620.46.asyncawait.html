@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function resolveAfter2Seconds(x) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(x);
+                    }, 2000);
+                });
+            }
+
+            async function abc() {
+                console.log("hi 1");
+                console.log("hi 2");
+                console.log("hi 3");
+                //這上密的log會直接呈現
+
+                const result = await resolveAfter2Seconds("aloha");
+                console.log("result:", result);
+                // 這邊的result會等上面的完全結束也就是所設定的兩秒後
+                //在log結束後再計算兩秒進行下面的result1
+
+                //這邊呈現的是async await看起來同步實際上還是利用promise的方式來處理
+                const result1 = await resolveAfter2Seconds("abc");
+                console.log("result1:", result1);
+            }
+            abc();
+        </script>
+    </body>
+</html>

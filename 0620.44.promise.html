@@ -8,17 +8,19 @@
     </head>
     <body>
         <script>
-            const a = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve({ name: "foo", age: 20 });
-                }, 2000);
-            });
+            const a = (url) => {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve({ name: "foo", age: 20, url: url });
+                    }, 2000);
+                });
+            };
 
-            a.then((value)=>{
+            a('https://www.google.com/')
+            .then((value) => {
                 console.log(value);
-                return {...value,age:value.age*2}
-            })
-            .then((age2)=>{
+                return { ...value, age: value.age * 2 };
+            }).then((age2) => {
                 console.log(age2);
             });
         </script>

@@ -24,7 +24,6 @@
                             <input
                                 type="email"
                                 name="email"
-
                                 class="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
@@ -67,7 +66,16 @@
         <script>
             $("form").on("submit", function (event) {
                 event.preventDefault();
-                console.log($(this).serialize());
+                $.ajax({
+                    method: "POST",
+                    url: "http://localhost:3000/login",
+                    data: $("form").serialize() ,
+                    dataType: "json",
+                    
+                }).done(function (data) {
+                    console.log(JSON.parse(JSON.stringify(data)));
+                });
+                console.log($("form").serialize());
             });
         </script>
     </body>
